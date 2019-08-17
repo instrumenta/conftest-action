@@ -1,10 +1,22 @@
-name: 'Container Action Template'
-description: 'Get started with Container actions'
-author: 'GitHub'
+name: "Conftest"
+description: "Write tests against structured configuration data using Open Policy Agent"
+author: "Gareth Rushgrove"
 inputs: 
-  myInput:
-    description: 'Input to use'
-    default: 'world'
+  files:
+    description: "Files for conftest to test"
+    required: true
+  policy:
+    description: "Where to find the policy folder or file"
+    default: "policy"
+  output:
+    description: "Output format for results"
+    default: "stdout"
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://instrumenta/conftest:latest'
+  args:
+  - test
+  - ${{ input.files }} 
+  - "-o ${{ inputs.output}}"
+  - "-p ${{ input.policy }}"
+
