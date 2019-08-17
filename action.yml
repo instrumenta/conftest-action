@@ -3,7 +3,7 @@ description: "Write tests against structured configuration data using Open Polic
 author: "Gareth Rushgrove"
 inputs: 
   files:
-    description: "Files for conftest to test"
+    description: "Files for Conftest to test"
     required: true
   policy:
     description: "Where to find the policy folder or file"
@@ -17,6 +17,6 @@ runs:
   args:
   - test
   - ${{ input.files }} 
-  - "-o ${{ inputs.output}}"
+  - "-o ${{ inputs.output }}"
   - "-p ${{ input.policy }}"
 
