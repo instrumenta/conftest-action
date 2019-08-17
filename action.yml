@@ -16,7 +16,7 @@ runs:
   image: 'docker://instrumenta/conftest:latest'
   args:
   - test
-  - ${{ input.files }} 
+  - ${{ inputs.files }} 
   - "-o ${{ inputs.output }}"
-  - "-p ${{ input.policy }}"
+  - "-p ${{ inputs.policy }}"
 
