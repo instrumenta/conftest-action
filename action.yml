@@ -1,6 +1,9 @@
 name: "Conftest"
 description: "Write tests against structured configuration data using Open Policy Agent"
 author: "Gareth Rushgrove"
+branding:
+  icon: "check"
+  color: "green"
 inputs: 
   files:
     description: "Files for Conftest to test"
