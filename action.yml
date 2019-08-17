@@ -17,6 +17,8 @@ runs:
   args:
   - test
   - ${{ inputs.files }} 
-  - "-o ${{ inputs.output }}"
-  - "-p ${{ inputs.policy }}"
+  - -o
+  - ${{ inputs.output }}
+  - -p
+  - ${{ inputs.policy }}
 
