@@ -30,5 +30,4 @@ runs:
   - ${{ inputs.policy }}
   - --namespace
   - ${{ inputs.namespace }}
-  - ${{ inputs.args }}
-  - ${{ inputs.files }} 
+  - ${{ inputs.args }} ${{ inputs.files }} 
