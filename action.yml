@@ -11,17 +11,24 @@ inputs:
   policy:
     description: "Where to find the policy folder or file"
     default: "policy"
+  namespace:
+    description: "The Rego namespace to use for testing"
+    default: "main"
   output:
     description: "Output format for results"
     default: "stdout"
+  args:
+    description: "Any additional arguments to pass to Conftest"
 runs:
   using: 'docker'
   image: 'docker://instrumenta/conftest:latest'
   args:
   - test
-  - ${{ inputs.files }} 
   - -o
   - ${{ inputs.output }}
   - -p
   - ${{ inputs.policy }}
-
+  - --namespace
+  - ${{ inputs.namespace }}
+  - ${{ inputs.args }}
+  - ${{ inputs.files }} 
