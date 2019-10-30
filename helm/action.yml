@@ -21,6 +21,7 @@ runs:
   using: 'docker'
   image: 'docker://instrumenta/helm-conftest:latest'
   args:
+  - conftest
   - -o
   - ${{ inputs.output }}
   - -p
