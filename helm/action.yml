@@ -1,0 +1,30 @@
+name: "Helm Conftest"
+description: "Write tests against your Helm Charts using Open Policy Agent"
+author: "Gareth Rushgrove"
+branding:
+  icon: "check"
+  color: "green"
+inputs: 
+  chart:
+    description: "The directory containing the Chart configuration"
+    required: true
+  policy:
+    description: "Where to find the policy folder or file"
+    default: "policy"
+  namespace:
+    description: "The Rego namespace to use for testing"
+    default: "main"
+  output:
+    description: "Output format for results"
+    default: "stdout"
+runs:
+  using: 'docker'
+  image: 'docker://instrumenta/helm-conftest:latest'
+  args:
+  - -o
+  - ${{ inputs.output }}
+  - -p
+  - ${{ inputs.policy }}
+  - --namespace
+  - ${{ inputs.namespace }}
+  - ${{ inputs.chart }} 
