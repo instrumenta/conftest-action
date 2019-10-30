@@ -17,8 +17,6 @@ inputs:
   output:
     description: "Output format for results"
     default: "stdout"
-  args:
-    description: "Any additional arguments to pass to Conftest"
 runs:
   using: 'docker'
   image: 'docker://instrumenta/conftest:latest'
@@ -30,4 +28,4 @@ runs:
   - ${{ inputs.policy }}
   - --namespace
   - ${{ inputs.namespace }}
-  - ${{ inputs.args }} ${{ inputs.files }} 
+  - ${{ inputs.files }} 
