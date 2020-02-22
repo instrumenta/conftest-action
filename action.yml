@@ -14,18 +14,16 @@ inputs:
   namespace:
     description: "The Rego namespace to use for testing"
     default: "main"
+  combine:
+    description: "Whether to combine input files"
+    default: "false"
   output:
     description: "Output format for results"
     default: "stdout"
 runs:
   using: 'docker'
   image: 'docker://instrumenta/conftest:latest'
+  entrypoint: sh
   args:
-  - test
-  - -o
-  - ${{ inputs.output }}
-  - -p
-  - ${{ inputs.policy }}
-  - --namespace
-  - ${{ inputs.namespace }}
-  - ${{ inputs.files }} 
+  - -c
+  - conftest test -o "${{ inputs.output }}" -p "${{ inputs.policy }}" --namespace "${{ inputs.namespace }}" --combine="${{ inputs.combine }}" ${{ inputs.files }} 
