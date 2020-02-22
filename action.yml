@@ -23,4 +23,4 @@ runs:
   entrypoint: sh
   args:
   - -c
-  - test -o ${{ inputs.output }} -p ${{ inputs.policy }} --namespace ${{ inputs.namespace }} ${{ inputs.files }} 
+  - conftest test -o ${{ inputs.output }} -p ${{ inputs.policy }} --namespace ${{ inputs.namespace }} ${{ inputs.files }} 
