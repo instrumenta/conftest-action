@@ -20,12 +20,7 @@ inputs:
 runs:
   using: 'docker'
   image: 'docker://instrumenta/conftest:latest'
+  entrypoint: sh
   args:
-  - test
-  - -o
-  - ${{ inputs.output }}
-  - -p
-  - ${{ inputs.policy }}
-  - --namespace
-  - ${{ inputs.namespace }}
-  - ${{ inputs.files }} 
+  - -c
+  - test -o ${{ inputs.output }} -p ${{ inputs.policy }} --namespace ${{ inputs.namespace }} ${{ inputs.files }} 
