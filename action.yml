@@ -26,4 +26,4 @@ runs:
   entrypoint: sh
   args:
   - -c
-  - conftest test -o ${{ inputs.output }} -p ${{ inputs.policy }} --namespace ${{ inputs.namespace }} --combine=${{ inputs.combine }} ${{ inputs.files }} 
+  - conftest test -o "${{ inputs.output }}" -p "${{ inputs.policy }}" --namespace "${{ inputs.namespace }}" --combine="${{ inputs.combine }}" ${{ inputs.files }} 
