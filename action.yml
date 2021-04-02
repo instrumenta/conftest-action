@@ -20,10 +20,13 @@ inputs:
   output:
     description: "Output format for results"
     default: "stdout"
+outputs:
+  results:
+    description: "The results of the Conftest"
 runs:
   using: 'docker'
   image: 'docker://instrumenta/conftest:latest'
   entrypoint: sh
   args:
   - -c
-  - conftest test -o "${{ inputs.output }}" -p "${{ inputs.policy }}" --namespace "${{ inputs.namespace }}" --combine="${{ inputs.combine }}" ${{ inputs.files }} 
+  - echo ::set-output name=results::$(conftest test -o "${{ inputs.output }}" -p "${{ inputs.policy }}" --namespace "${{ inputs.namespace }}" --combine="${{ inputs.combine }}" ${{ inputs.files }}) 
