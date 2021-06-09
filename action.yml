@@ -22,7 +22,7 @@ inputs:
     default: "stdout"
 runs:
   using: 'docker'
-  image: 'docker://instrumenta/conftest:latest'
+  image: 'docker://openpolicyagent/conftest:latest'
   entrypoint: sh
   args:
   - -c
