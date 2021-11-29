@@ -26,7 +26,7 @@ passed to the action using `with`, as demonstrated with `files` in the above exa
 | files | - | *Required* which files to test |
 | policy | policy | Where to find the policy folder or files |
 | namespace | main | The Rego namespace to use for testing |
-| output | stdout | How to format the output from Conftest (stdout, json or tap) |
+| output | stdout | How to format the output from Conftest (stdout, github, json or tap, check the full list [here](https://www.conftest.dev/options/#-output)) |
 
 
 ## Helm
@@ -58,7 +58,7 @@ passed to the action using `with`, as demonstrated with `chart` in the above exa
 | chart | - | *Required* which chart directory to test |
 | policy | policy | Where to find the policy folder or files |
 | namespace | main | The Rego namespace to use for testing |
-| output | stdout | How to format the output from Conftest (stdout, json or tap) |
+| output | stdout | How to format the output from Conftest (stdout, github, json or tap, check the full list [here](https://www.conftest.dev/options/#-output)) |
 
 
 
